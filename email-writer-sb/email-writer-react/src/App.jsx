@@ -19,9 +19,10 @@ const handleSubmit = async () => {
   setLoading(true);
   setError('');
   try{
-    const response = await axios.post("http://localhost:8080/api/email/generate" , 
-      { emailContent , tone}
-    );
+
+const response = await axios.post(`https://email-writer-9to0.onrender.com/api/email/generate` , 
+  { emailContent , tone}
+);
     setGenerateReply(typeof response.data === 'string' ? response.data : JSON.stringify(response.data));
      // Auto-scroll to generated reply
      setTimeout(() => {
