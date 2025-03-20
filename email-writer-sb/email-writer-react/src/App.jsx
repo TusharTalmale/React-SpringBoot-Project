@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import config from "./config";
 
 import './App.css'
 import { Box, Button, CircularProgress, Container, FormControl,  InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
@@ -20,7 +21,7 @@ const handleSubmit = async () => {
   setError('');
   try{
 
-const response = await axios.post(`https://email-writer-9to0.onrender.com/api/email/generate` , 
+const response = await axios.post(`${config.backendUrl}/api/email/generate` , 
   { emailContent , tone}
 );
     setGenerateReply(typeof response.data === 'string' ? response.data : JSON.stringify(response.data));
